@@ -11,7 +11,9 @@ const client = new Twitter({
 function fetchTweets(search) {
   const params = {
     q: search,
-    exclude: 'retweets'
+    exclude: 'retweets',
+    count: 100,
+    lang: 'en'
   }
   return new Promise(function (resolve, reject) {
     client.get('search/tweets', params, function (error, tweets, response) {
