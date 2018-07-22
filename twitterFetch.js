@@ -13,7 +13,8 @@ function fetchTweets(search) {
     q: search,
     exclude: 'retweets',
     count: 100,
-    lang: 'en'
+    lang: 'en',
+    tweet_mode: 'extended'
   }
   return new Promise(function (resolve, reject) {
     client.get('search/tweets', params, function (error, tweets, response) {
