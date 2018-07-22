@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser')
 const twitterFetch = require('./twitterFetch')
+const api_key = 'GzQxwboKx3Nwv6rCfzFx';
 
 app.use(bodyParser.json())
 
@@ -13,8 +14,8 @@ app.use(function (req, res, next) {
   next()
 })
 
-app.post('/twitter', function (req, res) {
-  const search = req.body.search
+app.get('/twitter', function (req, res) {
+  const search = req.param('name')
   twitterFetch(search).then(function (results){
     res.status(200).send(results)
   })
